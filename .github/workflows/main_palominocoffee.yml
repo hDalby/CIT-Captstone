@@ -56,5 +56,5 @@
           with:
             app-name: 'palominocoffee'
             slot-name: 'production'
-            publish-profile: ${{ secrets.AzureAppService_PublishProfile_95ee859e62df422c872640c328dee71e }}
+            publish-profile: ${{ secrets.AzureAppService_PublishProfile_858adc55db3c46a8b2265f47403be42b }}
             package: .
