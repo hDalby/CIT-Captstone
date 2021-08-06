@@ -86,9 +86,9 @@ $function = htmlspecialchars($_POST['function']);
 
 
 //Database
-$servername = "localhost:8889";
-$username = "root";
-$password = "root";
+$servername = "palominocoffee-mysqldbserver.mysql.database.azure.com";
+$username = "mysqldbuser";
+$password = "J@smine1";
 $dbname = "db_palomino_coffee";
 
 

@@ -59,12 +59,6 @@ Licence URI: https://www.os-templates.com/template-terms
     <!-- main body -->
     <!-- ################################################################################################ -->      
     <!-- ################################################################################################ -->
-    <div id="comments">
-    <h2>Thanks!</h2>
-        <p>Our booking coordinator will reach out to you soon.</p><br>
-        <p>If you have any questions please contact us at<br>palominocoffee@gmail.com</p>
-
-
         <?php
 
 //require_once("navigation.php");
@@ -90,7 +84,7 @@ $function = htmlspecialchars($_POST['function']);
 
 
 //Database
-$servername = "https://palominocoffee.scm.azurewebsites.net/phpMyAdmin";
+$servername = "palominocoffee-mysqldbserver.mysql.database.azure.com";
 $username = "mysqldbuser";
 $password = "J@smine1";
 $dbname = "db_palomino_coffee";
@@ -110,7 +104,11 @@ $sql = "INSERT INTO events(name, phone, email, date, location, function) VALUES 
 
 
 if(mysqli_query($conn, $sql)) {
-    //echo "New record created successfully!";
+    echo    
+     <div id="comments">
+      <h2>Thanks!</h2>
+        <p>Our booking coordinator will reach out to you soon.</p><br>
+        <p>If you have any questions please contact us at<br>palominocoffee@gmail.com</p>
 }
     else {
         echo "Error: " . $sql . "" . mysqli_error($conn);
