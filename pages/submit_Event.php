@@ -26,15 +26,15 @@ Licence URI: https://www.os-templates.com/template-terms
     <header id="header" class="hoc clear"> 
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
-        <h1><a href="../pages/index.html">The Palomino Coffee Co</a></h1>
+        <h1><a href="../index.html"><img class="imgr borderedbox inspace-5" src="../images/palominologo.png" alt=""></a></h1>
       </div>
       <!-- ################################################################################################ -->
-      <nav id="mainav" class="fl_right">
+      <nav id="mainav" class="fl_center">
         <ul class="clear">
           <li><a href="../index.html">Home</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-          <li><a href="../shop.html">Shop</a></li>
+          <li><a href="../pages/about.html">About</a></li>
+          <li><a href="../pages/contact.html">Contact</a></li>
+          <li><a href="../pages/shop.html">Shop</a></li>
         </ul>
       </nav>
       <!-- ################################################################################################ -->
@@ -59,7 +59,9 @@ Licence URI: https://www.os-templates.com/template-terms
     <!-- main body -->
     <!-- ################################################################################################ -->      
     <!-- ################################################################################################ -->
-        <?php
+    
+    
+<?php
 
 //require_once("navigation.php");
 
@@ -85,40 +87,58 @@ $function = htmlspecialchars($_POST['function']);
 
 //Database
 $servername = "palominocoffee-mysqldbserver.mysql.database.azure.com";
-$username = "mysqldbuser";
-$password = "J@smine1";
+$username = "db_palomino_coffee'@'20.40.202.14";
+$password = "ZdFz08h34UFCQQ4B";
 $dbname = "db_palomino_coffee";
 
 
-//Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+//Initializes MySQLi
+$conn = mysqli_init();
+
+
+// Establish the connection
+mysqli_real_connect($conn, $servername, $dbname, $username, $password);
 
 
 //Check connection
 if($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die//("Connection failed: " . $conn->connect_error);
+      echo 
+        <h2>Ooops!</h2>
+          <p>It looks like we are experiencing technical issues.</p><br>
+          <p>Please contact us at palominocoffee@gmail.com</p>
 }
 
 
-$sql = "INSERT INTO events(name, phone, email, date, location, function) VALUES ('$name', '$phone', '$email', '$date', '$location', '$function')";
+$sql = "INSERT INTO events (name, phone, email, date, location, function) VALUES ('$name', '$phone', '$email', '$date', '$location', '$function')";
 
 
-if(mysqli_query($conn, $sql)) {
-    echo    
+//If connection failed, show the error
+if (mysqli_connect_errno()) {
+  echo 
      <div id="comments">
-      <h2>Thanks!</h2>
+     <h2>Thanks!</h2>
         <p>Our booking coordinator will reach out to you soon.</p><br>
         <p>If you have any questions please contact us at<br>palominocoffee@gmail.com</p>
 }
     else {
-        echo "Error: " . $sql . "" . mysqli_error($conn);
+      echo 
+        <h2>Ooops!</h2>
+          <p>It looks like we are experiencing technical issues.</p><br>
+          <p>Please contact us at palominocoffee@gmail.com</p>
+          //"Error: " . $sql . "" . mysqli_error($conn);
     }
+    
+    //die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
 
 
 //Close DB connection
 
 $conn->close();
 ?>
+
+
       </div>
       <!-- ################################################################################################ -->
     </div>
